@@ -1,8 +1,8 @@
-# 🍎 Klasifikasi Gambar Buah Segar & Busuk dengan CNN
+# Klasifikasi Gambar Buah Segar & Busuk dengan CNN
 
-Model *Deep Learning* berbasis **Convolutional Neural Network (CNN)** untuk mengklasifikasikan gambar buah **segar (fresh)** dan **busuk (rotten)** ke dalam 6 kelas: apel, pisang, dan jeruk — masing-masing dalam kondisi segar maupun busuk.
+Model *Deep Learning* berbasis **Convolutional Neural Network (CNN)** untuk mengklasifikasikan gambar buah **segar (fresh)** dan **busuk (rotten)** ke dalam 6 kelas: apel, pisang, dan jeruk. Masing-masing dalam kondisi segar maupun busuk.
 
-## 🎯 Kelas Klasifikasi
+## Kelas Klasifikasi
 
 Model dilatih untuk mengenali **6 kelas** gambar buah:
 
@@ -15,7 +15,7 @@ Model dilatih untuk mengenali **6 kelas** gambar buah:
 | `freshoranges` | Jeruk segar |
 | `rottenoranges` | Jeruk busuk |
 
-## 📊 Hasil & Performa Model
+## Hasil & Performa Model
 
 | Metrik | Akurasi |
 |---|---|
@@ -24,7 +24,7 @@ Model dilatih untuk mengenali **6 kelas** gambar buah:
 
 Model dilatih selama maksimal 25 epoch dengan `EarlyStopping` dan `ReduceLROnPlateau`, sehingga pelatihan berhenti otomatis begitu performa validasi tidak lagi meningkat.
 
-## 📊 Dataset
+## Dataset
 
 Dataset yang digunakan adalah **[Fresh and Stale Classification](https://www.kaggle.com/datasets/swoyam2609/fresh-and-stale-classification)** dari Kaggle, diunduh otomatis melalui `kagglehub`. Data awal (train & test bawaan dataset) digabungkan kembali lalu di-split ulang secara *stratified* menjadi:
 
@@ -32,7 +32,7 @@ Dataset yang digunakan adalah **[Fresh and Stale Classification](https://www.kag
 - **20%** — Data Validation
 - **10%** — Data Test
 
-## 🧠 Arsitektur Model
+## Arsitektur Model
 
 Model CNN dibangun secara sequential dengan 3 blok Convolutional, sebagai berikut:
 
@@ -50,11 +50,11 @@ Input (150x150x3)
 - **Loss Function**: Categorical Crossentropy
 - **Augmentasi Data**: rotasi, pergeseran lebar/tinggi, zoom, dan flip horizontal (untuk data training) guna mengurangi overfitting
 
-## 📂 Struktur Project
+## Struktur Project
 
 ```
 Klasifikasi-Gambar-Buah-CNN-/
-├── Submission_Akhir_Fundamental_Deep_Learning.ipynb   # Notebook utama: data prep, training, evaluasi, konversi model
+├── model.ipynb   # Notebook utama: data prep, training, evaluasi, konversi model
 ├── requirements.txt                                   # Daftar dependency Python
 ├── saved_model/                                        # Model dalam format TensorFlow SavedModel
 ├── tflite/
@@ -69,7 +69,7 @@ Model disediakan dalam **3 format berbeda** agar bisa digunakan di berbagai plat
 - **TFLite** — untuk aplikasi mobile & perangkat edge
 - **TensorFlow.js** — untuk dijalankan langsung di browser
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - **Python** & **TensorFlow / Keras** — pembangunan & pelatihan model CNN
 - **TensorFlow.js** (`tensorflowjs`) — konversi model ke format web
@@ -78,7 +78,7 @@ Model disediakan dalam **3 format berbeda** agar bisa digunakan di berbagai plat
 - **KaggleHub** — pengunduhan dataset
 - **NumPy**
 
-## ▶️ Cara Menjalankan
+## Cara Menjalankan
 
 1. **Clone repository**
    ```sh
@@ -93,7 +93,7 @@ Model disediakan dalam **3 format berbeda** agar bisa digunakan di berbagai plat
 
 3. **Jalankan notebook**
    ```sh
-   jupyter notebook Submission_Akhir_Fundamental_Deep_Learning.ipynb
+   jupyter notebook model.ipynb
    ```
    Jalankan seluruh cell secara berurutan — dataset akan otomatis terunduh dari Kaggle melalui `kagglehub`, dilanjutkan dengan preprocessing, training, evaluasi, hingga konversi model ke 3 format (SavedModel, TFLite, TensorFlow.js).
 
@@ -110,6 +110,6 @@ Model disediakan dalam **3 format berbeda** agar bisa digunakan di berbagai plat
    # ... siapkan gambar input berukuran 150x150x3, lalu jalankan interpreter.invoke()
    ```
 
-## 📌 Catatan
+## Catatan
 
 Proyek ini dibuat untuk tujuan pembelajaran *Computer Vision* dengan CNN, sekaligus melatih proses *deployment-ready* dengan mengonversi model ke berbagai format agar siap dipakai di lingkungan produksi (web, mobile, maupun server).
