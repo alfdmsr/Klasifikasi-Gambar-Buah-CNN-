@@ -1,0 +1,6 @@
+tensorflow
+tensorflowjs==4.20.0
+numpy
+matplotlib
+scikit-learn
+kagglehub
